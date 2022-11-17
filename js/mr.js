@@ -26,7 +26,38 @@
         $(function() { $("#divResize19").draggable().resizable(); });
         $(function() { $("#divResize20").draggable().resizable(); });
         $(function() { $("#divResize21").draggable().resizable(); });
-
+        $(function() { $("#divResize22").draggable().resizable(); });
+        $(function() { $("#divResize23").draggable().resizable(); });
+        $(function() { $("#divResize24").draggable().resizable(); });
+        $(function() { $("#divResize25").draggable().resizable(); });
+        $(function() { $("#divResize26").draggable().resizable(); });
+        $(function() { $("#divResize27").draggable().resizable(); });
+        $(function() { $("#divResize28").draggable().resizable(); });
+        $(function() { $("#divResize29").draggable().resizable(); });
+        $(function() { $("#divResize30").draggable().resizable(); });
+        $(function() { $("#divResize31").draggable().resizable(); });
+        $(function() { $("#divResize32").draggable().resizable(); });
+        $(function() { $("#divResize33").draggable().resizable(); });
+        $(function() { $("#divResize34").draggable().resizable(); });
+        $(function() { $("#divResize35").draggable().resizable(); });
+        $(function() { $("#divResize36").draggable().resizable(); });
+        $(function() { $("#divResize37").draggable().resizable(); });
+        $(function() { $("#divResize38").draggable().resizable(); });
+        $(function() { $("#divResize39").draggable().resizable(); });
+        $(function() { $("#divResize40").draggable().resizable(); });
+        $(function() { $("#divResize41").draggable().resizable(); });
+        $(function() { $("#divResize42").draggable().resizable(); });
+        $(function() { $("#divResize43").draggable().resizable(); });
+        $(function() { $("#divResize44").draggable().resizable(); });
+        $(function() { $("#divResize45").draggable().resizable(); });
+        $(function() { $("#divResize46").draggable().resizable(); });
+        $(function() { $("#divResize47").draggable().resizable(); });
+        $(function() { $("#divResize48").draggable().resizable(); });
+        $(function() { $("#divResize49").draggable().resizable(); });
+        $(function() { $("#divResize50").draggable().resizable(); });
+        $(function() { $("#divResize51").draggable().resizable(); });
+     
+        
         // Create more DIV elements with absolute postioning.
         $('#btClickMe').click(function() {
 
