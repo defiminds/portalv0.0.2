@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Real-time Bitcoin Chart</title>
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+	<div id="chart-container"></div>
+
+	<script>
+		Highcharts.setOptions({
+			global: {
+				timezoneOffset: new Date().getTimezoneOffset()
+			}
+		});
+
+		var chart = Highcharts.stockChart('chart-container', {
+			rangeSelector: {
+				buttons: [{
+					type: 'minute',
+					count: 1,
+					text: '1m'
+				}, {
+					type: 'minute',
+					count: 5,
+					text: '5m'
+				}, {
+					type: 'minute',
+					count: 15,
+					text: '15m'
+				}, {
+					type: 'minute',
+					count: 30,
+					text: '30m'
+				}, {
+					type: 'hour',
+					count: 1,
+					text: '1h'
+				}, {
+					type: 'hour',
+					count: 6,
+					text: '6h'
+				}, {
+					type: 'all',
+					text: 'All'
+				}],
+				selected: 6
+			},
+
+			title: {
+				text: 'Real-time Bitcoin Chart'
+			},
+
+			yAxis: {
+				labels: {
+					formatter: function () {
+						return '$' + this.value;
+					}
+				},
+				title: {
+					text: 'Price'
+				}
+			},
+
+			series: [{
+				name: 'Bitcoin',
+				data: [],
+				tooltip: {
+					valueDecimals: 2,
+					valuePrefix: '$'
+				}
+			}]
+		});
+
+		var socket = new WebSocket('wss://ws-feed.pro.coinbase.com');
+
+		socket.addEventListener('open', function (event) {
+			socket.send(JSON.stringify({
+				type: 'subscribe',
+				product_ids: ['BTC-USD'],
+				channels: ['ticker']
+			}));
+		});
+
+		socket.addEventListener('message', function (event) {
+			var data = JSON.parse(event.data);
+			if (data.type === 'ticker') {
+				chart.series[0].addPoint([Date.now(), parseFloat(data.price)], true, false);
+			}
+		});
+
+	</script>
+</body>
+</html>
